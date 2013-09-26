@@ -35,7 +35,7 @@ class Game
 
   def game_result
     @game_board.display
-    turn % 2 == 0 ? color = @player1.color : color = @player2.color
+    @turn % 2 == 0 ? color = @player1.color : color = @player2.color
     puts "CHECKMATE! #{color.capitalize} wins!"
   end
 end
