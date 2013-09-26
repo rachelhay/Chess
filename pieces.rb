@@ -1,3 +1,5 @@
+#added for convenience in board_dup method
+#checks if object.is_a?Piece
 class Piece
 end
 
