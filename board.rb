@@ -1,10 +1,11 @@
 
 class Board
-
   attr_accessor :board
 
   def initialize
     @board = Array.new(8) { Array.new(8) }
+    
+    
 
     @board[0] = [Rook.new([0,0], :white, "\u2656"), Knight.new([0,1], :white, "\u2658"), Bishop.new([0,2], :white, "\u2657"),
                  Queen.new([0,3], :white, "\u2655"), King.new([0,4], :white, "\u2654"),

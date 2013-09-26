@@ -10,15 +10,14 @@ class Game
     @player2 = HumanPlayer.new(:green)
     @turn = 1
   end
-  
-  def turn
-    @turn
-  end
 
   def play
+    
     until @game_board.checkmate?(@player1.color) || @game_board.checkmate?(@player2.color)
       @game_board.display
-      puts "Check!" if @game_board.check?(@player1.color) || @game_board.check?(@player2.color)
+      if @game_board.check?(@player1.color) || @game_board.check?(@player2.color)
+        puts "Check!" 
+      end
       begin
         @turn % 2 == 1 ? player = @player1 : player = @player2
         move = player.move(player.color)
@@ -40,7 +39,9 @@ class Game
   end
 end
 
+
 class Array
+  #to ensure all the board's arrays, objects, and objects' attributes are duplicated
   def board_dup
     duped_board = []
     self.each_with_index do |element, idx|
