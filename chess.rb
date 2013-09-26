@@ -4,18 +4,21 @@ require_relative 'player'
 require_relative 'pieces'
 
 class Game
-  attr_accessor :game_board, :player1, :player2, :turn
   def initialize
     @game_board = Board.new
     @player1 = HumanPlayer.new(:white)
     @player2 = HumanPlayer.new(:green)
     @turn = 1
   end
+  
+  def turn
+    @turn
+  end
 
   def play
-    until @game_board.checkmate?(player1.color) || @game_board.checkmate?(player2.color)
+    until @game_board.checkmate?(@player1.color) || @game_board.checkmate?(@player2.color)
       @game_board.display
-      puts "Check!" if @game_board.check?(player1.color) || @game_board.check?(player2.color)
+      puts "Check!" if @game_board.check?(@player1.color) || @game_board.check?(@player2.color)
       begin
         @turn % 2 == 1 ? player = @player1 : player = @player2
         move = player.move(player.color)
