@@ -42,21 +42,21 @@ class Game
 end
 
 class Array
-  def deep_dup
-    duped_array = []
-    self.each_with_index do |el, idx|
-      if el.is_a?(Array)
-        duped_array << el.deep_dup
-      elsif el.is_a?(Piece)
-        duped_piece = el.dup
-        duped_pos = el.pos.dup
+  def board_dup
+    duped_board = []
+    self.each_with_index do |element, idx|
+      if element.is_a?(Array)
+        duped_board << element.board_dup
+      elsif element.is_a?(Piece)
+        duped_piece = element.dup
+        duped_pos = element.pos.dup
         duped_piece.pos = duped_pos
-        duped_array << duped_piece
+        duped_board << duped_piece
       else
-        duped_array << nil
+        duped_board << nil
       end
     end
-    duped_array
+    duped_board
   end
 end
 

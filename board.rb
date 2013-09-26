@@ -73,7 +73,7 @@ class Board
   def check?(color, current_pos = nil, intended_pos = nil)
 
     if current_pos && intended_pos
-      duped_positions = @board.deep_dup
+      duped_positions = @board.board_dup
       duped_board = Board.new
       duped_board.board = duped_positions
       duped_board.execute_move(current_pos, intended_pos)
