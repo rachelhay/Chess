@@ -32,12 +32,8 @@ class Game
 
   def game_result
     @game_board.display
-
-    if turn % 2 == 0
-      puts "CHECKMATE! #{@player1.color} wins!"
-    else
-      puts "CHECKMATE! #{@player2.color} wins!"
-    end
+    turn % 2 == 0 ? color = @player1.color : color = @player2.color
+    puts "CHECKMATE! #{color.capitalize} wins!"
   end
 end
 
@@ -63,7 +59,7 @@ end
 
 class InvalidMoveError < StandardError
   def initialize
-    puts "Invalid move. Please reenter a move:"
+    puts "Invalid move. Please re-enter a move:"
   end
 end
 
