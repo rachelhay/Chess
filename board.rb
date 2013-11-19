@@ -1,12 +1,8 @@
-
 class Board
   attr_accessor :board
 
   def initialize
     @board = Array.new(8) { Array.new(8) }
-    
-    
-
     @board[0] = [Rook.new([0,0], :white, "\u2656"), Knight.new([0,1], :white, "\u2658"), Bishop.new([0,2], :white, "\u2657"),
                  Queen.new([0,3], :white, "\u2655"), King.new([0,4], :white, "\u2654"),
                  Bishop.new([0,5], :white, "\u2657"), Knight.new([0,6], :white, "\u2658"), Rook.new([0,7], :white, "\u2656")]
@@ -22,10 +18,7 @@ class Board
     @board[7] = [Rook.new([7,0], :green, "\u2656"), Knight.new([7,1], :green, "\u2658"), Bishop.new([7,2], :green, "\u2657"),
                 Queen.new([7,3], :green, "\u2655"), King.new([7,4], :green, "\u2654"),
                 Bishop.new([7,5], :green, "\u2657"), Knight.new([7,6], :green, "\u2658"), Rook.new([7,7], :green, "\u2656")]
-
-
   end
-
 
   def display
     reversed_board = @board.reverse
@@ -72,7 +65,6 @@ class Board
   end
 
   def check?(color, current_pos = nil, intended_pos = nil)
-
     if current_pos && intended_pos
       duped_positions = @board.board_dup
       duped_board = Board.new

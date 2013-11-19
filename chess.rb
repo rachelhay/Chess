@@ -11,8 +11,7 @@ class Game
     @turn = 1
   end
 
-  def play
-    
+  def play   
     until @game_board.checkmate?(@player1.color) || @game_board.checkmate?(@player2.color)
       @game_board.display
       if @game_board.check?(@player1.color) || @game_board.check?(@player2.color)
@@ -39,7 +38,6 @@ class Game
   end
 end
 
-
 class Array
   #to ensure all the board's arrays, objects, and objects' attributes are duplicated
   def board_dup
@@ -59,7 +57,6 @@ class Array
     duped_board
   end
 end
-
 
 class InvalidMoveError < StandardError
   def initialize

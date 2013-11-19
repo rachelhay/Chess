@@ -1,10 +1,7 @@
-#added for convenience in board_dup method
-#checks if object.is_a?Piece
 class Piece
 end
 
 module SlidingPieces
-
   def moves(game_board)
     moves = []
     move_dirs.each do |dir_vert, dir_horz|
@@ -71,8 +68,6 @@ class Queen < Piece
     @unicode = unicode
   end
 
-
-
   def move_dirs
     [[-1,0],[0,-1],[0,1],[1,0],[1,1],[-1,-1],[1,-1],[-1,1]]
   end
@@ -93,7 +88,6 @@ class Bishop < Piece
 end
 
 module SteppingPieces
-
   def moves(game_board)
     moves = []
     curr_vert, curr_horz = @pos
@@ -132,8 +126,6 @@ class King < Piece
     @unicode = unicode
   end
 
-
-
   def move_locations
     [[-1,0],[0,-1],[0,1],[1,0],[1,1],[-1,-1],[1,-1],[-1,1]]
   end
@@ -148,12 +140,9 @@ class Knight < Piece
     @unicode = unicode
   end
 
-
-
   def move_locations
     [[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]]
   end
-
 end
 
 class Pawn < Piece
